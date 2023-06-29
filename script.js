@@ -1,7 +1,9 @@
 let myLibrary = [];
 
-const newBookButton = document.querySelector(".newBook");
+const newBookButton = document.querySelector(".new-book");
 const submitButton = document.querySelector(".submit");
+const newBookForm = document.getElementById("new-book-form");
+
 
 newBookButton.addEventListener("click", displayForm);
 submitButton.addEventListener("click", addBookToLibrary);
@@ -16,9 +18,9 @@ function Book(title, author, pages, status) {
 
 function addExampleBook() {
   const exampleBook = new Book("Harry Potter and the Philosopher\'s Stone (Example)",
-                      "J. K. Rowling",
-                      336,
-                      "Finished");
+                               "J. K. Rowling",
+                               336,
+                               "Finished");
   myLibrary.push(exampleBook);
 }
 
@@ -57,11 +59,10 @@ function displayLibrary() {
 }
 
 function displayForm() {
-  let newBookForm = document.getElementById("newBookForm");
-  if(newBookForm.style.display === "none") {
-    newBookForm.style.display = "block"
+  if(newBookForm.style.display === "" || newBookForm.style.display === "none") {
+    newBookForm.style.display = "block";
   } else {
-    newBookForm.style.display = "none"
+    newBookForm.style.display = "none";
   }
 }
 

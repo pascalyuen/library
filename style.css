@@ -9,17 +9,23 @@
   align-items: center;
 }
 
-button.newBook {
+button.new-book {
   border: none;
   border-radius: 5px;
   padding: 10px 50px;
-  background-color: #23634c;
+  background-color: #8a246d;
   color: white;
 }
 
-button.newBook:hover {
+button.new-book:hover {
   cursor: pointer;
-  background-color: #04AA6D;
+  background-color: #a92c86;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 form > div {
@@ -67,7 +73,7 @@ th {
   color: white;
 }
 
-#newBookForm {
+#new-book-form {
   display: none;
   margin: 10px 10px 0 10px;
 }
