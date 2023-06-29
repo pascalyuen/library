@@ -22,6 +22,19 @@ button.new-book:hover {
   background-color: #a92c86;
 }
 
+button.delete {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 50px;
+  background-color: #B22F8D;
+  color: white;
+}
+
+button.delete:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
 .form-container {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -56,13 +69,13 @@ td, th {
   padding: 8px;
 }
 
-tr:nth-child(even){
+/* tr:nth-child(even){
   background-color: #f2f2f2;
-}
+} */
 
-tr:hover {
+/* tr:hover {
   background-color: #ddd;
-}
+} */
 
 th {
   padding-top: 12px;
