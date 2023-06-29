@@ -44,18 +44,14 @@ function addBookToLibrary() {
 
 function displayLibrary() {
   let tableRef = document.getElementById("bookTable");
+  let newRow = tableRef.insertRow();
+  let bookInfo = Object.values(myLibrary[myLibrary.length - 1]);
 
-  let i = 0;
-  while(myLibrary[i]) {
-    let newRow = tableRef.insertRow();
-    let bookInfo = Object.values(myLibrary[i]);
-    bookInfo.forEach((value) => {
-      let newCell = newRow.insertCell();
-      let newText = document.createTextNode(value);
-      newCell.appendChild(newText);
-    })
-    i++;
-  }
+  bookInfo.forEach((value) => {
+  let newCell = newRow.insertCell();
+  let newText = document.createTextNode(value);
+  newCell.appendChild(newText);
+  })
 }
 
 function displayForm() {

@@ -22,8 +22,7 @@ button.new-book:hover {
   background-color: #a92c86;
 }
 
-form {
-  display: grid;
+.form-container {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 }
