@@ -1,13 +1,13 @@
 let myLibrary = [];
-myLibrary.push({
-  title: "HP",
-  author: "JK",
-  pages: 500,
-  status: "finished"
-})
+
+const newBookButton = document.querySelector(".newBook");
+const submitButton = document.querySelector(".submit");
+
+newBookButton.addEventListener("click", displayForm);
+submitButton.addEventListener("click", addBookToLibrary);
 
 function Book(title, author, pages, status) {
-  // the constructor...
+  // the constructor
   this.title = title,
   this.author = author,
   this.pages = pages,
@@ -16,9 +16,16 @@ function Book(title, author, pages, status) {
 
 function addBookToLibrary() {
   event.preventDefault();
-  // Add sample books to test the array
-  let book1 = new Book("HP", "JK", 500, "finished");
-  myLibrary.push(book1);
+
+  let titleValue = document.querySelector("#title").value;
+  let authorValue = document.querySelector("#author").value;
+  let pagesValue = document.querySelector("#pages").value;
+  let statusValue = document.querySelector("#status").value;
+
+  let newAddition = new Book(titleValue, authorValue, pagesValue, statusValue);
+  myLibrary.push(newAddition);
+
+  displayLibrary();
 }
 
 function displayLibrary() {
@@ -37,7 +44,7 @@ function displayLibrary() {
   }
 }
 
-function displayToggle() {
+function displayForm() {
   let newBookForm = document.getElementById("newBookForm");
   if(newBookForm.style.display === "none") {
     newBookForm.style.display = "block"

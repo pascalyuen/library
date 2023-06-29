@@ -1,10 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+button.newBook {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 50px;
+  background-color: #23634c;
+  color: white;
+}
+
+button.newBook:hover {
+  cursor: pointer;
+  background-color: #04AA6D;
+}
+
+form > div {
+  margin-bottom: 2px;
+}
+
+input ,
+select {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  margin-top: 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
 table {
+  margin-top: 10px;
   width: 80%;
 }
 
@@ -31,4 +68,5 @@ th {
 
 #newBookForm {
   display: none;
+  margin: 10px 10px 0 10px;
 }
