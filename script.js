@@ -14,6 +14,14 @@ function Book(title, author, pages, status) {
   this.status = status
 }
 
+function addExampleBook() {
+  const exampleBook = new Book("Harry Potter and the Philosopher\'s Stone (Example)",
+                      "J. K. Rowling",
+                      336,
+                      "Finished");
+  myLibrary.push(exampleBook);
+}
+
 function addBookToLibrary() {
   event.preventDefault();
 
@@ -57,4 +65,5 @@ function displayForm() {
   }
 }
 
+addExampleBook();
 displayLibrary();
