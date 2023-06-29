@@ -23,8 +23,12 @@ function addBookToLibrary() {
   let statusValue = document.querySelector("#status").value;
 
   let newAddition = new Book(titleValue, authorValue, pagesValue, statusValue);
-  myLibrary.push(newAddition);
-
+  if (myLibrary.some((book) => book.title === newAddition.title)) {
+    alert("This book is already in your library");
+    return;
+  } else {
+      myLibrary.push(newAddition);
+  }
   displayLibrary();
 }
 
