@@ -17,11 +17,16 @@ function Book(title, author, pages, status) {
 }
 
 function addExampleBook() {
-  const EXAMPLE_BOOK = new Book("Harry Potter and the Philosopher\'s Stone (Example)",
+  const EXAMPLE_BOOK_1 = new Book("Harry Potter and the Philosopher\'s Stone (Example)",
                                "J. K. Rowling",
                                336,
                                "Finished");
-  myLibrary.push(EXAMPLE_BOOK);
+  const EXAMPLE_BOOK_2 = new Book("Harry Potter and the Chamber of Secrets (Example)",
+                               "J. K. Rowling",
+                               251,
+                               "Reading");
+  myLibrary.push(EXAMPLE_BOOK_1);
+  myLibrary.push(EXAMPLE_BOOK_2);
 }
 
 function addBookToLibrary() {
@@ -44,30 +49,22 @@ function addBookToLibrary() {
 }
 
 function displayLibrary() {
-  // let tableRef = document.getElementById("table-body");
-  // let newRow = tableRef.insertRow();
-  // let newBook = Object.values(myLibrary[myLibrary.length - 1]);
+  // Clear table
+  tableBody.innerHTML = '';
 
-  // newBook.forEach((value) => {
-  // let newCell = newRow.insertCell();
-  // let newText = document.createTextNode(value);
-  // newCell.appendChild(newText);
-  // })
-  // // Cell for the delete button
-  // newRow.insertCell();
-
-  let newBook = myLibrary[myLibrary.length - 1];
-
-  const newEntry = `
+  // Loops through library array and displays each book
+  myLibrary.forEach(book => {
+    const newEntry = `
     <tr>
-      <td>${newBook.title}</td>
-      <td>${newBook.author}</td>
-      <td>${newBook.pages}</td>
-      <td>${newBook.status}</td>
-      <td><button class="delete">Delete</button></td>
+      <td>${book.title}</td>
+      <td>${book.author}</td>
+      <td>${book.pages}</td>
+      <td>${book.status}</td>
+      <td><button class="delete", onclick="deleteBook()">Delete</button></td>
     </tr>
   `;
-  tableBody.insertAdjacentHTML("afterbegin", newEntry);
+  tableBody.insertAdjacentHTML("beforeend", newEntry);
+  })
 }
 
 function displayForm() {
@@ -78,5 +75,12 @@ function displayForm() {
   }
 }
 
+// Add example book and display the initial library
 addExampleBook();
 displayLibrary();
+
+// Delete Book
+function deleteBook() {
+  // console.log("the button is working")
+  
+}
