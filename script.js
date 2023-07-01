@@ -52,19 +52,19 @@ function displayLibrary() {
   // Clear table
   tableBody.innerHTML = '';
 
-  // Loops through library array and displays each book
-  myLibrary.forEach(book => {
+  for (const[index, book] of myLibrary.entries()) {
     const newEntry = `
     <tr>
       <td>${book.title}</td>
       <td>${book.author}</td>
       <td>${book.pages}</td>
       <td>${book.status}</td>
-      <td><button class="delete", onclick="deleteBook()">Delete</button></td>
+      <td><button class="delete", onclick="deleteBook(${index})">Delete</button></td>
+      <td>${index}</td>
     </tr>
   `;
   tableBody.insertAdjacentHTML("beforeend", newEntry);
-  })
+  }
 }
 
 function displayForm() {
@@ -80,7 +80,10 @@ addExampleBook();
 displayLibrary();
 
 // Delete Book
-function deleteBook() {
-  // console.log("the button is working")
-  
+function deleteBook(index) {
+  let text = "Are you sure you want to delete this book?"
+  if (confirm(text)) {
+    myLibrary.splice(index, 1);
+    displayLibrary();
+  };
 }
