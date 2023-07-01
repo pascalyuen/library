@@ -16,6 +16,17 @@ function Book(title, author, pages, status) {
   this.status = status
 }
 
+// Change read status of a book
+Book.prototype.changeStatus = function () {
+  if (this.status == "Reading") {
+    this.status = "Finished";
+  } else {
+    this.status = "Reading";
+  }
+  displayLibrary();
+}
+
+// Add two example books to the array
 function addExampleBook() {
   const EXAMPLE_BOOK_1 = new Book("Harry Potter and the Philosopher\'s Stone (Example)",
                                "J. K. Rowling",
@@ -29,6 +40,7 @@ function addExampleBook() {
   myLibrary.push(EXAMPLE_BOOK_2);
 }
 
+// Add a new book to the array
 function addBookToLibrary() {
   event.preventDefault();
 
@@ -48,6 +60,7 @@ function addBookToLibrary() {
   displayLibrary();
 }
 
+// Loops through the array and displays each book on the page
 function displayLibrary() {
   // Clear table
   tableBody.innerHTML = '';
@@ -58,15 +71,15 @@ function displayLibrary() {
       <td>${book.title}</td>
       <td>${book.author}</td>
       <td>${book.pages}</td>
-      <td>${book.status}</td>
+      <td><button class="status", onclick="myLibrary[${index}].changeStatus()">${book.status}</button></td>
       <td><button class="delete", onclick="deleteBook(${index})">Delete</button></td>
-      <td>${index}</td>
     </tr>
   `;
   tableBody.insertAdjacentHTML("beforeend", newEntry);
   }
 }
 
+// Displays the add new book form when user clicks the "New Book" button
 function displayForm() {
   if(newBookForm.style.display === "" || newBookForm.style.display === "none") {
     newBookForm.style.display = "block";
